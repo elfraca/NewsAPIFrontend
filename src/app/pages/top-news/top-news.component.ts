@@ -1,6 +1,7 @@
 import { Component , OnInit} from '@angular/core';
 import { TopNewsService } from 'src/app/services/topnews.service';
 import { MatTableDataSource, MatTableModule } from "@angular/material/table";
+import { Item } from "../../models";
 
 @Component({
   selector: 'app-top-news',
@@ -10,8 +11,9 @@ import { MatTableDataSource, MatTableModule } from "@angular/material/table";
 export class TopNewsComponent implements OnInit {
   page = 1;
   pageSize = 10;
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource();
+  displayedColumns: string[] = [ 'title', 'url', 'by'];
+  items: Item[] = [];
+  dataSource: any;
 
   constructor(private topNewsService: TopNewsService){}
 
@@ -22,7 +24,8 @@ export class TopNewsComponent implements OnInit {
   GetTopNews(){
     console.log('antes de promesa')
     this.topNewsService.GetTopNews(1,10).subscribe( items => {
-      console.log(items);
+      this.dataSource = new MatTableDataSource(items);
+      console.log(this.dataSource);
       return items;
     });
   }

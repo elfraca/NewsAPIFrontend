@@ -1,6 +1,33 @@
 <mat-form-field>
   <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Google" #input>
 </mat-form-field>
+<div class="mat-elevation-z8 container mt-3">
+  <table mat-table [dataSource]="dataSource" class="">
+    <ng-container matColumnDef="titulo">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let elemento"> {{ elemento.title }} </td>
+    </ng-container>
+    <ng-container matColumnDef="url">
+      <th mat-header-cell *matHeaderCellDef> Url </th>
+      <td mat-cell *matCellDef="let elemento" class="long-cell"> 
+        <a href="{{ elemento.url }}" target="_blank">{{ elemento.url }}</a> 
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="by">
+      <th mat-header-cell *matHeaderCellDef> By </th>
+      <td mat-cell *matCellDef="let elemento"> {{ elemento.by }} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="['titulo','url','by']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['titulo','url','by']"></tr>
+  
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+</div>
+
+
 
 
