@@ -8,11 +8,13 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { MatButtonModule } from '@angular/material/button';
-import { TopNewsComponent } from './pages/top-news/top-news.component';
+import { NewsStoriesComponent } from './pages/news-stories/news-stories.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from "@angular/common/http";
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -20,7 +22,7 @@ import { HttpClientModule } from "@angular/common/http";
     AppComponent,
     HomeComponent,
     ToolbarComponent,
-    TopNewsComponent
+    NewsStoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,9 @@ import { HttpClientModule } from "@angular/common/http";
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

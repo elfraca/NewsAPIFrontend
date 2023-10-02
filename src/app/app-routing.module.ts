@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { TopNewsComponent } from './pages/top-news/top-news.component';
+import { NewsStoriesComponent } from './pages/news-stories/news-stories.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'top-news', component: TopNewsComponent},
+  { path: 'news-stories', component: NewsStoriesComponent},
 ];
 
 @NgModule({
